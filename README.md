@@ -75,9 +75,9 @@ El archivo [js/script.js](./js/script.js) maneja toda la interactividad de la p�
 
 1. **Gestor de Tema (`applyTheme` y EventListener en el botón de toggle)**:
    - *¿Qué hace?* Alterna la clase `light` o `dark` en el `body` de las páginas y lo guarda en `localStorage` para recordar la elección del usuario en toda su navegación.
-   - *Ubicación*: Se ejecuta a nivel global a través de [js/script.js](./js/script.js), aplicado a todas las páginas.
-   <br>![Captura del toggle en modo light](img/screenshots/toggle_light.png)
-   <br>![Captura del toggle en modo dark](img/screenshots/toggle_dark.png)
+   - *Ubicación*: Se ejecuta a nivel global a través de [js/script.js](./js/script.js), aplicado a todas las páginas y se ubica en la esquina superior derecha.
+   <br>![Captura del toggle en modo light](img/btn_up.png)
+   <br>![Captura del toggle en modo dark](img/btn_down.png)
 
 2. **Loader Temático**:
    - *¿Qué hace?* Detecta qué modo está activo y muestra un cargador inicial ("Bienvenidos" vs "Bienvenido al infierno") que desaparece con un *fade out* luego de 1.2 segundos.
