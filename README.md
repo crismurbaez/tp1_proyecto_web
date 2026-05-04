@@ -67,6 +67,27 @@ El sitio incluye funcionalidades dinámicas como un cargador inicial (loader) te
 - Utilizamos imágenes `.png` y `.jpg` personalizadas para íconos de interacción (ej: botones de modo `btn_down.png`, `btn_up.png`).
 - Los avatares fueron generados por **Inteligencia Artificial** manteniendo la estética ochentera y sombría de la serie, garantizando la privacidad de los integrantes.
 
+### 📱 Diseño Responsivo (Media Queries)
+El proyecto utiliza un enfoque *Desktop-First* (diseño primero para escritorio y luego adaptación hacia abajo) implementando las siguientes Media Queries en [css/styles.css](./css/styles.css) para garantizar una experiencia fluida en cualquier dispositivo:
+
+- **Escritorio y Laptops Pequeñas (`max-width: 1200px`)**:
+  - Se optimiza el espaciado general. Las tarjetas de la grilla principal (`.card`) y del perfil (`.profile-card`) reducen levemente su tamaño para no colisionar.
+  - El logo del encabezado se ajusta para ahorrar espacio vertical.
+  <br>![Gif Escritorio 1200px](img/screenshots/1200px.gif)
+
+- **Tablets y Pantallas Medianas (`max-width: 900px`)**:
+  - **Navegación**: La barra de enlaces superior se oculta y es reemplazada por un **Menú Hamburguesa** (interactivo vía JS). Al abrirlo, el menú se despliega verticalmente.
+  - **Layout de Perfiles**: Las tarjetas de perfil (`.profile-card`), que originalmente dividían avatar e información en dos columnas, colapsan en **una sola columna vertical** (centrando imagen y texto).
+  - La grilla principal (`.grid`) pasa a mostrarse en una sola columna para facilitar el scroll.
+  - Se reducen los tamaños tipográficos de los títulos en la sección Bitácora.
+  <br>![Gif Tablet 900px](img/screenshots/900px.gif)
+
+- **Dispositivos Móviles Pequeños (`max-width: 400px`)**:
+  - Las tarjetas (`.card`) pasan a ocupar el 90% del ancho de la pantalla móvil.
+  - Reducción agresiva de tipografías (nombres de perfil, citas y descripciones) para evitar desbordes de texto.
+  - Los botones interactivos (como el de "Volver" o "¡Sorpresa!") reducen su escala y reposicionan sus coordenadas absolutas para mantenerse siempre accesibles.
+  <br>![Gif Mobile 400px](img/screenshots/400px.gif)
+
 ---
 
 ## ⚡ JavaScript: Funcionalidades Dinámicas
@@ -76,6 +97,8 @@ El archivo [js/script.js](./js/script.js) maneja toda la interactividad de la p�
 1. **Gestor de Tema (`applyTheme` y EventListener en el botón de toggle)**:
    - *¿Qué hace?* Alterna la clase `light` o `dark` en el `body` de las páginas y lo guarda en `localStorage` para recordar la elección del usuario en toda su navegación.
    - *Ubicación*: Se ejecuta a nivel global a través de [js/script.js](./js/script.js), aplicado a todas las páginas y se ubica en la esquina superior derecha.
+
+   📸 *Captura del toggle en modo light y dark:*
    <br>![Captura del toggle en modo light](img/btn_up.png)
    <br>![Captura del toggle en modo dark](img/btn_down.png)
 
@@ -90,12 +113,16 @@ El archivo [js/script.js](./js/script.js) maneja toda la interactividad de la p�
 3. **Animaciones Dinámicas (`updateTitleAnimation(isDark)`)**:
    - *¿Qué hace?* Alterna animaciones de la librería *Animate.css* sobre el título principal ("pulse" para el modo claro y la agresiva "hinge" para el modo oscuro).
    - *Ubicación*: Lógica en [js/script.js](./js/script.js), aplicado en [index.html](./index.html).
-   <br>![Captura de titulo](img/screenshots/tittle_light.gif)
-   <br>![Captura de titulo](img/screenshots/tittle_dark.gif)
+
+   📸 *Gifs de Tittle:*
+   <br>![Gif de Tittle light](img/screenshots/tittle_light.gif)
+   <br>![Gif de Tittle dark](img/screenshots/tittle_dark.gif)
 
 4. **Tarjetas de Portada (`updateCardImages(isDark)`)**:
    - *¿Qué hace?* Cambia las imágenes (avatar normal a versión "corrompida") y los **textos de los roles** (ej: Front-end Developer a Reality Breaker) en las *cards* de presentación de la Home, leyendo los atributos `data-light` y `data-dark`.
    - *Ubicación*: Lógica en [js/script.js](./js/script.js), aplicado en [index.html](./index.html).
+   
+   📸 *Captura de Tarjetas Dinámicas:* 
    <br>![Captura de Tarjetas Dinámicas Light](img/screenshots/cards_light.png)
    <br>![Captura de Tarjetas Dinámicas Dark](img/screenshots/cards_dark.png)
 
@@ -112,9 +139,9 @@ El archivo [js/script.js](./js/script.js) maneja toda la interactividad de la p�
    - *¿Qué hace?* Controla el botón "¡Sorpresa!". Al hacer clic, utiliza la técnica **FLIP** mediante JavaScript para inyectar un GIF temático que ocupa exactamente el 100% de la pantalla (100vw/100vh) sin deformarse. Luego, calcula matemáticamente las coordenadas de la tarjeta y hace que la imagen "vuele" hacia su posición final, respetando todas las Media Queries.
    - *Ubicación*: Lógica de animación calculada íntegramente en [js/script.js](./js/script.js), aplicado en páginas individuales.
 
-   📸 *Captura de la animación sorpresa:*
-   <br>![Captura Sorpresa](img/screenshots/sorpresa_light.gif)
-   <br>![Captura Sorpresa](img/screenshots/sorpresa_dark.gif)
+   📸 *Gifs de la animación sorpresa:*
+   <br>![Gif de Sorpresa light](img/screenshots/sorpresa_light.gif)
+   <br>![Gif de Sorpresa dark](img/screenshots/sorpresa_dark.gif)
 
 ---
 
